@@ -1,0 +1,407 @@
+
+<html>
+    <head>
+        <style>
+            body{
+                background: url(yasuo.jpg) 100% 100%;
+            }
+            p{
+                text-align: center;
+                color: red;
+            }
+        </style>
+
+    </head>
+    <body>
+        <h1>《短歌行》</h1>
+    <div>曹丕</div>
+    <p>
+        仰瞻帷幕。<br>
+        俯察几筵。<br>
+        其物如故。<br>
+        其人不存。<br>
+        神灵倐忽。<br>
+        弃我遐迁。<br>
+        靡瞻靡恃。<br>
+        泣涕连连。<br>
+        呦呦游鹿。<br>
+        衔草鸣麑。<br>
+        翩翩飞鸟。<br>
+        挟子巢栖。<br>
+        我独孤茕。<br>
+        怀此百离。<br>
+        忧心孔疚。<br>
+        莫我能知。<br>
+        人亦有言。<br>
+        忧令人老。<br>
+        嗟我白发。<br>
+        生一何早。<br>
+        长吟永叹。<br>
+        怀我圣考。<br>
+        曰仁者寿。<br>
+        胡不是保。<br>
+
+
+
+    </p>
+
+    </body>
+</html>
+<html>
+
+    <head>
+        <style>
+            table{
+                border-collapse: collapse;/*表格的边框合并*/
+                border-collapse: separate;/*边缘分开*/
+                border-spacing: 20px;/*分开的间距为20像素*/
+                empty-cells: hide;/*单元格（细胞格）隐藏起来*/
+            }
+
+            table,th ,td {
+                border: solid black;
+            }
+
+        </style>
+
+
+    </head>
+
+
+    <body>
+        <table>
+            <tr>
+            <th>班级</th>
+            <th>姓名</th>
+            </tr>
+
+            <tr>
+                <th>3班</th>
+                <th>二柱子</th>
+            </tr>
+            <tr>
+                <th>3班</th>
+                <th>二狗子</th>
+            </tr>
+            <tr>
+                <th>3班</th>
+                <th></th>
+            </tr>
+        </table>
+
+
+    </body>
+</html>
+<html>
+    <head>
+        <style>
+            a{
+                /*清除原有的恶文本样式，便于后面用css整体修改样式*/
+                text-decoration: none;
+            }
+            
+
+
+        </style>
+
+
+    </head>
+    <body>
+        <a href="http://www.baidu.com">百度</a>
+        <a href="http://www.tencent.com">腾讯</a>
+        <a href="http://www.taobao.com">淘宝</a>
+    </body>
+</html>
+
+<html>
+
+
+    <head>
+        <style>
+            #disc{/*实心圆  默认显示格式*/
+                list-style-type: disc;
+            }
+            #noxianshi{/*不要任何格式*/
+                list-style-type: none;
+            }
+            #kongxin{/*空心圆*/
+                list-style-type: circle;
+            }
+            #shixin{/*实心方框*/
+                list-style-type: square;
+            }
+            #number{/*数字*/
+                list-style-type: decimal;
+            }
+        </style>
+
+
+
+    </head>
+    <body>
+        <p>
+            disc:实心圆
+        </p>
+        <ul id="disc">
+            <li>实心圆</li>
+            <li>默认就是实心圆</li>
+        </ul>
+
+        <p>
+            前面列表符号不显示
+        </p>
+        <ul id="noxianshi">
+            <li>不显示列表符号</li>
+            <li>常用在菜单列表</li>
+        </ul>
+        <p>空心圆</p>
+        <ul id="kongxin">
+            <li>空心圆</li>
+            <li>不常用</li>
+        </ul>
+        <p>实心方框</p>
+        <ul id="shixin">
+            <li>实心的方框</li>
+            <li>不常用</li>
+        </ul>
+        <p>数字</p>
+        <ul id="number">
+            <li>数字</li>
+        </ul>
+    </body>
+</html>
+
+<html>
+
+    <head>
+        <style>
+            .img1{
+                list-style-image: url(....png);
+            }
+            .img2{
+                list-style-image: url(....png);
+                list-style-position: outside;
+            }
+        </style>
+
+
+    </head>
+
+
+    <body>
+        <ul class="img1">
+            <li>列表符号位图片</li>
+            <li>哈哈哈</li>
+        </ul>
+
+
+    </body>
+
+    
+</html>
+<html>
+
+    <head>
+        <style>
+            #undered{
+                list-style: url(....png) inside square ; 
+            }
+            #ordered{
+                list-style: none inside upper-roman;
+            }
+        </style>
+
+
+    </head>
+
+
+    <body>
+        <p>无序列表</p>
+        <ul id="undered">
+            <li复合属性调整样式</li>
+            <li>哈啊</li>
+
+        </ul>
+        <ol id="ordered">
+            <li>复合属性调整的样式</li>
+            <li>haah</li>
+
+        </ol>
+
+    </body>
+
+
+</html>
+<html>
+    <head>
+        <meta charset="wtf-8"/>
+        <title>document</title>
+            <style>
+                body{
+                    /*综合字体样式 italic bold 12px/13px 宋体，隶书*/
+                    /*字体风格>字体粗细>字体大小>字体类型
+                    font属性值之间使用空格隔开，其中font-style，font-weight可以进行顺序调换，
+                    而font-size和font-family则必须按照固定顺序出现，如果这两个顺序错误或缺少，
+                    南无整个样式可能就会被忽略。另外，在字体大小属性值部分可以添加到行高属性值，以“/”分割*/
+                    font: italic bold 12px/25px 宋体，隶书;
+                }
+            </style>
+            
+    </head>
+    <body>
+        <body>
+            <h1>《短歌行》</h1>
+            <div>曹丕</div>
+            <p id="content">
+                仰瞻帷幕。<br>
+                俯察几筵。<br>
+                其物如故。<br>
+                其人不存。<br>
+                <!-- <div class="topline">神灵倐忽。<br> </div>
+                <div class="throughline">弃我遐迁。<br> </div>
+                <div class="underline">靡瞻靡恃。<br> </div> -->
+                泣涕连连。<br>
+                呦呦游鹿。<br>
+                衔草鸣麑。<br>
+                翩翩飞鸟。<br>
+                挟子巢栖。<br>
+                我独孤茕。<br>
+                怀此百离。<br>
+                忧心孔疚。<br>
+                莫我能知。<br>
+                人亦有言。<br>
+                忧令人老。<br>
+                嗟我白发。<br>
+                生一何早。<br>
+                长吟永叹。<br>
+                怀我圣考。<br>
+                曰仁者寿。<br>
+                胡不是保。<br>
+        
+        
+        
+            </p>
+        
+    </body>
+</html>
+
+<html>
+    <head>
+        <style>
+            /*1  背景图片
+            background-image:
+            cover覆盖
+            no-repeat 不重复
+            */
+            body{
+                background-image: url(琴女.jpg);/*背景图*/
+                background-repeat: no-repeat;/*背景重复，不重复*/
+                background-size: cover;/*背景太小：覆盖（拉伸）*/
+                text-align: center;/*文本对齐：居中*/
+                background-attachment: fixed;/*背景附着方式：滚动*/
+                background-position: 50% 50%;/*背景位置*/
+                background-attachment: 30px 30px;/*背景位置直接写死*/
+            }
+            p{
+                line-height: 30px;/*行高*/
+                font-size: 28;/*字体大小*/
+                font-family: "华文行楷";/*字体类型*/
+            }
+            
+
+        </style>
+
+    </head>
+<body>
+    <h1>《短歌行》</h1>
+    <div>曹丕</div>
+    <p>
+        仰瞻帷幕。<br>
+        俯察几筵。<br>
+        其物如故。<br>
+        其人不存。<br>
+        神灵倐忽。<br>
+        弃我遐迁。<br>
+        靡瞻靡恃。<br>
+        泣涕连连。<br>
+        呦呦游鹿。<br>
+        衔草鸣麑。<br>
+        翩翩飞鸟。<br>
+        挟子巢栖。<br>
+        我独孤茕。<br>
+        怀此百离。<br>
+        忧心孔疚。<br>
+        莫我能知。<br>
+        人亦有言。<br>
+        忧令人老。<br>
+        嗟我白发。<br>
+        生一何早。<br>
+        长吟永叹。<br>
+        怀我圣考。<br>
+        曰仁者寿。<br>
+        胡不是保。<br>
+
+
+
+    </p>
+
+ </body>
+
+
+
+
+
+</html>
+<html>
+    <head>
+        <style>
+            .topline{
+                text-decoration:overline ;/*上划线*/
+            }
+            .throughline{
+                text-decoration: line-through;/*中划线*/
+            }
+            .underline{
+                text-decoration: underline;/*下划线*/
+            }
+            #content,.topline,.throughline,.underline,p{
+                font-style: oblique; /*调整字体样式   italic oblique 斜体*/
+            }
+        </style>
+
+    </head>
+    <body>
+        <h1>《短歌行》</h1>
+        <div>曹丕</div>
+        <p id="content">
+            仰瞻帷幕。<br>
+            俯察几筵。<br>
+            其物如故。<br>
+            其人不存。<br>
+            <!-- <div class="topline">神灵倐忽。<br> </div>
+            <div class="throughline">弃我遐迁。<br> </div>
+            <div class="underline">靡瞻靡恃。<br> </div> -->
+            泣涕连连。<br>
+            呦呦游鹿。<br>
+            衔草鸣麑。<br>
+            翩翩飞鸟。<br>
+            挟子巢栖。<br>
+            我独孤茕。<br>
+            怀此百离。<br>
+            忧心孔疚。<br>
+            莫我能知。<br>
+            人亦有言。<br>
+            忧令人老。<br>
+            嗟我白发。<br>
+            生一何早。<br>
+            长吟永叹。<br>
+            怀我圣考。<br>
+            曰仁者寿。<br>
+            胡不是保。<br>
+    
+    
+    
+        </p>
+    
+    </body>
+</html>
