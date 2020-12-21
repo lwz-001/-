@@ -1,0 +1,130 @@
+# -
+记录生活
+<html>
+    <head>
+
+      <style>
+
+        div{
+            width: 300px;           /*盒子的宽度*/
+            height: 100px;          /*盒子的高度*/
+            margin: 10px;           /*外边距 边距和父元素之间的距离*/
+            padding: 20px;          /*内边距 文本和边线之间的距离*/
+            border: 3px dashed red;  /*边缘  3像素    虚线   红色  */
+        }
+
+      </style>
+
+    </head>
+
+
+    <body>
+
+        <div>
+            盒子模型
+        </div>
+        
+    </body>
+
+
+
+
+
+
+</html>
+<html>
+
+    <head>
+        <style>
+            div{
+                width: 200px;   /*宽度200像素*/
+                height: 100px;  /*高度100*/
+            }
+            .border-width{
+                border-width: 10px; /*盒子边线宽度10像素*/
+                border-color: black;    /*盒子边线颜色 黑色*/
+                /*盒子边线样式 虚线 点线 双线 实线
+                              上    右  下  左*/
+                border-style: dashed dotted double solid;
+            }
+            .border{
+                border: 2px solid red;  /*边线：2像素 实线 红色*/
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div class="border-width">
+
+        </div>
+        <div class="border">
+
+        </div>
+
+    </body>
+</html>
+<html>
+
+    <head>
+        <style type="text/css">
+            /*伪类选择器*/
+            input:focus{
+                /* outline 大纲 ，轮廓 ：3像素 点线 红色*/
+                outline: 3px dotted red;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <input type="text"/>
+    </body>
+
+
+
+</html>
+<html>
+
+<head>
+
+    <style>
+
+        div.box1{
+            width: 200px;
+            height: 100px;
+            margin: 15px;
+            padding: 20px;
+            border: 10px solid #222; /*边框*/
+            box-sizing: content-box;
+        }
+        div.box2{
+            width: 200px;
+            height: 100px;
+            margin: 15px;
+            padding: 20px;
+            border: 10px solid #222; /*边框*/
+            box-sizing: border-box;
+        }
+    </style>
+
+</head>
+
+
+    <body>
+
+        <div class="box1">
+            盒子模型1
+        </div>
+
+        <div class="box2">
+            盒子模型2
+        </div>
+    </body>
+
+
+
+
+
+</html>
