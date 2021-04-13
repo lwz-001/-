@@ -1,0 +1,544 @@
+
+## 系统概述
+
+ 
+
+ - 新增图书
+ - 查看图书
+ - 删除图书
+ - 借出图书
+ - 归还图书
+## 步骤1：数据初始化
+ - 思路分析
+
+创建类Book，添加4个属性：图书名称、图书状态、日期、库存数量。
+```java
+package edu.xcdq;
+
+/**
+ * @qvthor liuwenzheng
+ * @date 2021/4/12 8:23
+ */
+public class book {
+    /**
+     * 图书类
+     */
+    // 名字  状态  借出日期   次数
+    public String name ;    //图书名称
+    public int state ;  //图书状态          0已借出1可借
+    public String date ; //借出日期
+    public double number ; // 库存
+    /*
+    图书信息展示
+     */
+    public void  dayin(int index){
+        System.out.println(index + "\t\t\t\t"+ name+ "\t\t\t\t" + state + "\t\t\t\t" + date + "\t\t\t\t" + number);
+
+    }
+    public void setBook(String mingzi, int zhuangtai , String riqi , double kucun){
+        this.name = mingzi;
+        this.state = zhuangtai ;
+        this.date = riqi ;
+        this.number = kucun ;
+    }
+
+}
+
+```
+## 步骤1-2：创建BookSet类
+
+ - 思路分析
+
+并在类中定义1个长度为10的数组保存图书
+
+```java
+package edu.xcdq;
+
+/**
+ * @qvthor liuwenzheng
+ * @date 2021/4/12 8:36
+ */
+// 图书集合类
+public class BookSet {
+    book[] books = new book[10];
+}
+
+```
+## 步骤1-3：创建BookManage类
+
+ - 思路分析
+
+创建BookSet对象和bookSet，实现初始化数据的方法inital(),
+
+```java
+package edu.xcdq;
+
+import javax.xml.namespace.QName;
+import java.util.Scanner;
+
+/**
+ * @qvthor liuwenzheng
+ * @date 2021/4/12 8:33
+ */
+// 图书管理类
+public class BookManage {
+    BookSet bookSet = new BookSet();
+
+    /**
+     * 初始化
+     */
+    public void initial() {
+        book java = new book();
+        java.setBook("java",1,"1990/2/3",20);
+        book renyue = new book();
+        renyue.name = "人月神话";
+        renyue.setBook("人月神话",1 ,null,0);
+        book jichu = new book();
+        jichu.setBook("计算机基础",1,null,0);
+        bookSet.books[0] = java ;
+        bookSet.books[1] = renyue ;
+        bookSet.books[2] = jichu ;
+    }
+
+```
+## 步骤2：实现菜单切换
+
+ - 思路分析
+
+在BookManage类中编写菜单显示和菜单切换的startMenu方法，并在测试类中编写程序入口
+实例化BookManage 类并实现inital方法和startMenu方法
+
+```java
+
+/*
+菜单切换
+ */
+    public void startMenu(){
+        boolean flag = true ;
+        do {
+            System.out.println("*******************");
+            System.out.println("1 新增图书");
+            System.out.println("2 查看图书");
+            System.out.println("3 删除图书");
+            System.out.println("4 借出图书");
+            System.out.println("5 归还图书");
+            System.out.println("6 退出");
+            System.out.println("*********************");
+            System.out.println("请选择");
+            Scanner scanner = new Scanner(System.in);
+            int choice = scanner.nextInt() ;
+            switch (choice){
+                case 1:
+                    System.out.println("新增图书");
+                    add();
+                    break;
+                case 2:
+                    System.out.println("查看图书");
+                    chakan();
+                    break;
+                case 3:
+                    System.out.println("删除图书");
+                    shan();
+                    break;
+                case 4:
+                    System.out.println("借出图书");
+                    jie();
+                    break;
+                case 5:
+                    System.out.println("归还图书");
+                    huan();
+                    break;
+                case 6:
+                    System.out.println("退出，谢谢使用");
+                default:
+                    System.out.println("输入不符合要求请重新选择");
+            }
+        }while (flag) ;
+    }
+
+```
+## 步骤2-1：创建Main类
+测试类
+
+```java
+package edu.xcdq;
+
+/**
+ * 测试类
+ */
+public class Main {
+
+    public static void main(String[] args) {
+        BookManage bookManage = new BookManage() ;
+        bookManage.initial();
+        bookManage.startMenu();
+    }
+}
+
+```
+## 步骤3：实现查看图书信息
+
+ - 思路分析
+ 在BookManage类中编写图书信息的chakan方法，并在startMenu时调用
+ 
+
+```java
+**
+ * 查看图书信息
+ */
+    public void chakan(){
+        System.out.println("编号 \t\t\t  名称 \t\t\t 状态 \t\t\t 借出日期 \t\t\t 库存");
+        for (int i = 0 ; i < this.bookSet.books.length ; i ++){
+            if ( this.bookSet.books[i]!=null){
+                this.bookSet.books[i].dayin(i+1);
+
+                }
+            }
+        }
+
+```
+## 步骤4：实现新增图书信息
+在BookManage类中编写添加图书信息的add方法，并在startMenu方法中是调用
+
+```java
+
+    /**
+     * 添加图书
+     */
+        public void add(){
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("请输入图书的名称：");
+            String name = scanner.next();
+            System.out.println("请输入库存：");
+            int number = scanner.nextInt() ;
+            book newBook = new book();
+            newBook.setBook(name , newBook.state, newBook.date, newBook.number);
+
+            for (int i = 0 ; i < bookSet.books.length ; i++){
+                if (bookSet.books[i] == null){
+                    bookSet.books[i] = newBook ;  //把新建的对象放在数组中的第一个空位置
+                    bookSet.books[i].number = number ; //库存
+                    System.out.println("添加成功");
+                    break; //后续的空位置直接跳过
+                }
+            }
+        }
+```
+## 步骤5：实现删除图书信息
+在BookManage类中编写添加图书信息的shan方法，并在startMenu方法中调用
+通过把后面的元素依次前移一位，实现删除；最后一个不为空元素置空
+```java
+/**
+ * 删除
+ */
+    public void shan(){
+        System.out.println("请输入删除图书的编号：");
+        Scanner scanner = new Scanner(System.in);
+        int bianhao = scanner.nextInt();
+        boolean flag = true ;
+        for (int i = 0 ; i< bookSet.books.length ; i ++){
+            if (bookSet.books[i] != null &&(i+1) == bianhao){
+                if (bookSet.books[i].state != 0) {
+                    int j = i;
+                    while (bookSet.books[j + 1] != null) {
+                        //后面元素向前移动
+                        bookSet.books[j] = bookSet.books[j + 1];
+                        j++;
+                    }
+                    bookSet.books[j] = null;
+                    flag = true;
+                    break;  //后面元素没必要执行
+                }else {
+                    System.out.println("图书为借出状态不能删除");
+                    flag= true ;
+                }
+            }else {
+                flag = false ;
+            }
+
+        }
+        if (flag){
+            System.out.println("删除成功");
+        }else {
+            System.out.println("删除失败");
+        }
+    }
+
+}
+```
+## 步骤6：借出图书
+在BookManage类中编写添加图书信息的jie方法，并在startMenu方法中调用
+
+```java
+/**
+ * 借书
+ */
+
+    public void jie(){
+        System.out.println("请输入要借书的名称");
+        Scanner scanner = new Scanner(System.in);
+        String jie = scanner.next();
+        boolean flag = true ;
+        System.out.println("请输入借书的日期");
+        String riqi = scanner.next() ;
+        for (int i = 0 ; i < bookSet.books.length ; i ++){
+            if (bookSet.books[i] != null && bookSet.books[i].name.equals(jie)){
+                if (bookSet.books[i].state == 1){ //在书的状态为1（可借）可以借出
+                    bookSet.books[i].state = 0 ; //借出后把书的状态改为0（不可借）
+                    flag = true ;
+                    bookSet.books[i].date=riqi; //日期改为现在借书的日期
+                }
+                break;
+            }
+
+            }
+
+
+
+         if (flag){
+             System.out.println("借出成功");
+        }else {
+             System.out.println("借出失败");
+         }
+
+    }
+```
+## 步骤7：归还图书
+在BookManage类中编写添加图书信息的huan方法，并在startMenu方法中调用
+
+```java
+ /**
+     * 归还
+     */
+        public void huan(){
+            System.out.println("请输入要归还书的名称");
+            Scanner scanner = new Scanner(System.in);
+            String huan = scanner.next();
+            boolean flag = true ;  //判断是否归还成功
+            System.out.println("请输入归还日期");
+            String riqi = scanner.next() ;
+            for (int i = 0 ; i < bookSet.books.length ; i ++){
+                if ( bookSet.books[i].name.equals(huan) &&bookSet.books[i].state == 0 ) { 						// 在书的状态为一借出的状态下可以归还
+                    bookSet.books[i].state = 1 ;
+                    bookSet.books[i].date = riqi ;
+
+                }else {
+                    System.out.println("归还成功");
+                    flag = true ;
+                    break;
+                }
+            }
+        }
+```
+## 总代码
+
+```java
+package edu.xcdq;
+
+import javax.xml.namespace.QName;
+import java.util.Scanner;
+
+/**
+ * @qvthor liuwenzheng
+ * @date 2021/4/12 8:33
+ */
+// 图书管理类
+public class BookManage {
+    BookSet bookSet = new BookSet();
+
+    /**
+     * 初始化
+     */
+    public void initial() {
+        book java = new book();
+        java.setBook("java",1,"1990/2/3",20);
+        book renyue = new book();
+        renyue.name = "人月神话";
+        renyue.setBook("人月神话",1 ,null,0);
+        book jichu = new book();
+        jichu.setBook("计算机基础",1,null,0);
+        bookSet.books[0] = java ;
+        bookSet.books[1] = renyue ;
+        bookSet.books[2] = jichu ;
+    }
+
+/*
+菜单切换
+ */
+    public void startMenu(){
+        boolean flag = true ;
+        do {
+            System.out.println("*******************");
+            System.out.println("1 新增图书");
+            System.out.println("2 查看图书");
+            System.out.println("3 删除图书");
+            System.out.println("4 借出图书");
+            System.out.println("5 归还图书");
+            System.out.println("6 退出");
+            System.out.println("*********************");
+            System.out.println("请选择");
+            Scanner scanner = new Scanner(System.in);
+            int choice = scanner.nextInt() ;
+            switch (choice){
+                case 1:
+                    System.out.println("新增图书");
+                    add();
+                    break;
+                case 2:
+                    System.out.println("查看图书");
+                    chakan();
+                    break;
+                case 3:
+                    System.out.println("删除图书");
+                    shan();
+                    break;
+                case 4:
+                    System.out.println("借出图书");
+                    jie();
+                    break;
+                case 5:
+                    System.out.println("归还图书");
+                    huan();
+                    break;
+                case 6:
+                    System.out.println("退出，谢谢使用");
+                default:
+                    System.out.println("输入不符合要求请重新选择");
+            }
+        }while (flag) ;
+    }
+
+/**
+ * 查看图书信息
+ */
+    public void chakan(){
+        System.out.println("编号 \t\t\t  名称 \t\t\t 状态 \t\t\t 借出日期 \t\t\t 库存");
+        for (int i = 0 ; i < this.bookSet.books.length ; i ++){
+            if ( this.bookSet.books[i]!=null){
+                this.bookSet.books[i].dayin(i+1);
+
+                }
+            }
+        }
+
+    /**
+     * 添加图书
+     */
+        public void add(){
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("请输入图书的名称：");
+            String name = scanner.next();
+            System.out.println("请输入库存：");
+            int number = scanner.nextInt() ;
+            book newBook = new book();
+            newBook.setBook(name , newBook.state, newBook.date, newBook.number);
+
+            for (int i = 0 ; i < bookSet.books.length ; i++){
+                if (bookSet.books[i] == null){
+                    bookSet.books[i] = newBook ;  //把新建的对象放在数组中的第一个空位置
+                    bookSet.books[i].number = number ; //库存
+                    System.out.println("添加成功");
+                    break; //后续的空位置直接跳过
+                }
+            }
+        }
+    /**
+     * 归还
+     */
+        public void huan(){
+            System.out.println("请输入要归还书的名称");
+            Scanner scanner = new Scanner(System.in);
+            String huan = scanner.next();
+            boolean flag = true ;  //判断是否归还成功
+            System.out.println("请输入归还日期");
+            String riqi = scanner.next() ;
+            for (int i = 0 ; i < bookSet.books.length ; i ++){
+                if ( bookSet.books[i].name.equals(huan) &&bookSet.books[i].state == 0 ) { // 在书的状态为一借出的状态下可以归还
+                    bookSet.books[i].state = 1 ;
+                    bookSet.books[i].date = riqi ;
+
+                }else {
+                    System.out.println("归还成功");
+                    flag = true ;
+                    break;
+                }
+            }
+        }
+/**
+ * 借书
+ */
+
+    public void jie(){
+        System.out.println("请输入要借书的名称");
+        Scanner scanner = new Scanner(System.in);
+        String jie = scanner.next();
+        boolean flag = true ;
+        System.out.println("请输入借书的日期");
+        String riqi = scanner.next() ;
+        for (int i = 0 ; i < bookSet.books.length ; i ++){
+            if (bookSet.books[i] != null && bookSet.books[i].name.equals(jie)){
+                if (bookSet.books[i].state == 1){
+                    bookSet.books[i].state = 0 ;
+                    flag = true ;
+                    bookSet.books[i].date=riqi;
+                }
+                break;
+            }
+
+            }
+
+
+
+         if (flag){
+             System.out.println("借出成功");
+        }else {
+             System.out.println("借出失败");
+         }
+
+    }
+/**
+ * 删除
+ */
+    public void shan(){
+        System.out.println("请输入删除图书的编号：");
+        Scanner scanner = new Scanner(System.in);
+        int bianhao = scanner.nextInt();
+        boolean flag = true ;
+        for (int i = 0 ; i< bookSet.books.length ; i ++){
+            if (bookSet.books[i] != null &&(i+1) == bianhao){
+                if (bookSet.books[i].state != 0) {
+                    int j = i;
+                    while (bookSet.books[j + 1] != null) {
+                        //后面元素向前移动
+                        bookSet.books[j] = bookSet.books[j + 1];
+                        j++;
+                    }
+                    bookSet.books[j] = null;
+                    flag = true;
+                    break;  //后面元素没必要执行
+                }else {
+                    System.out.println("图书为借出状态不能删除");
+                    flag= true ;
+                }
+            }else {
+                flag = false ;
+            }
+
+        }
+        if (flag){
+            System.out.println("删除成功");
+        }else {
+            System.out.println("删除失败");
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+```
